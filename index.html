@@ -15,11 +15,6 @@
     color: #1d1d1f;
     background: #ffffff;
   }
-  @media (prefers-color-scheme: dark) {
-    body { color: #f5f5f7; background: #1d1d1f; }
-    a { color: #2997ff; }
-    .card { border-color: #3a3a3c; }
-  }
   h1 { font-size: 1.7rem; margin-bottom: 0.25rem; }
   p.lead { color: #6e6e73; margin-top: 0; }
   .card {
@@ -33,6 +28,15 @@
   a { color: #0066cc; text-decoration: none; }
   a:hover { text-decoration: underline; }
   footer { margin-top: 3rem; color: #86868b; font-size: 0.85rem; }
+  /* Dark mode overrides must come AFTER base rules so equal-specificity
+     selectors win the cascade in dark mode. */
+  @media (prefers-color-scheme: dark) {
+    body { color: #f5f5f7; background: #1d1d1f; }
+    a { color: #2997ff; }
+    p.lead { color: #a1a1a6; }
+    .card { border-color: #3a3a3c; }
+    footer { color: #a1a1a6; }
+  }
 </style>
 </head>
 <body>
